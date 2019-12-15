@@ -1,0 +1,15 @@
+Match Hero join job:
+	hadoop jar /Users/summershoohaw/Academic/BigData/final_project/Dota2MatchAnalysis.jar datapreprocess.MatchHeroDataGenApp /dota2dataset/match.csv /dota2dataset/players.csv /dota2dataset/matchhero
+
+
+Enemy Analysis (Sort win rate against different heros in descending order)
+	hadoop jar /Users/summershoohaw/Academic/BigData/final_project/Dota2MatchAnalysis.jar allyenemy.EnemyAnalysisApp /dota2dataset/matchhero /dota2dataset/enemyanalysis
+
+Transfer ids into actual names
+	hadoop jar /Users/summershoohaw/Academic/BigData/final_project/Dota2MatchAnalysis.jar idnameconvert.IdNameConvertApp /dota2dataset/hero_names.csv /dota2dataset/enemyanalysis /dota2dataset/enemyanalysis_names
+
+Hero winlose with item infor
+	hadoop jar /Users/summershoohaw/Academic/BigData/final_project/Dota2MatchAnalysis.jar itemanalysis.HeroItemAnalysisApp /dota2dataset/purchase_log.csv /dota2dataset/matchhero /dota2dataset/itemanalysis
+
+Transfer heroId to hero name and item id to item name
+	hadoop jar /Users/summershoohaw/Academic/BigData/final_project/Dota2MatchAnalysis.jar itemnameconvert.ItemNameConvertionApp hdfs:///dota2dataset/item_ids.csv /dota2dataset/hero_names.csv /dota2dataset/itemanalysis /dota2dataset/itemanalysis_names
